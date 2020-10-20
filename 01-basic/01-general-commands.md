@@ -18,7 +18,7 @@ Since v11 commands are organized by Managment Commands.
 | image     | application |
 | Container |   process   |
 
-## container
+## container execution
 
 ```bash
 docker container run --publish 80:80 nginx
@@ -105,4 +105,47 @@ docker stop mongo
 docker ps
 docker top mongo
 ps aux | grep mongo
+```
+
+Each start == start container which had been run once.
+
+```bash
+docker container start webhost
+```
+
+## inspect container from outside
+
+```bash
+docker container top webhost
+
+docker container inspect webhost
+
+docker container stats
+```
+
+## inspect container from inside
+
+```bash
+# if not started yet
+docker container run -it --name proxy nginx bash
+docker container run -it --name cent7 centos:7 bash
+
+
+# if is started already
+docker container exec -it mysql bash
+root@<id>$> apt-get update && apt-get install -y procps
+root@<id>$> ps
+```
+
+Depends on entrypoint and container configuration, "exit" in shell session may shotdown the container (e.g. the 1st container citizen is a daemon).
+
+## images
+
+Term desribes contents of a container. There is a need to have a docker image to run a docker container.
+
+```bash
+
+docker pull alpine
+
+docker image ls
 ```
