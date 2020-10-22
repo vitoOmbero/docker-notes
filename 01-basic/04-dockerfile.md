@@ -26,3 +26,4 @@ docker image build -t customngnix .
 Each line of dockerfile is "executed" and cached - id is attached, so if command was not changed, the next build skips it.
 This is a point not to make make-all command.
 The points of changes are placed at the bottom.
+

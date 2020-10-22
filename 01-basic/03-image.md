@@ -40,3 +40,15 @@ docker image push new_repo/nginx new_repo/nginx:testing
 ```
 
 Do *docker login* before, of cause.
+
+## clean space
+
+```bash
+diocker system --help
+
+docker system df
+
+docker image prune
+
+docker system prune
+```
